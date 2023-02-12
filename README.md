@@ -1,7 +1,7 @@
 
 # Project Title
 
-This repo is created for begineers starting into blockchain and want to learn ether.js
+This repo is created for begineers starting into blockchain and want to learn ethers.js
 
 <h2>Using this repo you can Read,Write data , Send ethers to the deployed smart contract and send ethers to a person.
 <h3>How to use this repo ?</h3><br>
