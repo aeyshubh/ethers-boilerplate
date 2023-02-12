@@ -5,19 +5,19 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
 const contractAddress = '0xd3DE95C8a44aE71E82501152D9C63083241C8feE';
 const contractABI = abi;
-const contractObjP = new Contract(
+const contractRead = new Contract(
     contractAddress,
     contractABI,
     provider
 );
-const contractWriting = new ethers.Contract(contractAddress, contractABI, signer);
+const contractWrite = new ethers.Contract(contractAddress, contractABI, signer);
 
 
 async function damn() {
     //const chainId = await window.ethereum.request({ method: "eth_chainId" });
 
     console.log("Reading")
-    const getName = await contractObjP.name();
+    const getName = await contractRead.name();
 
     console.log("mined", getName.hash);
     console.log("The Name is:" + getName);
@@ -28,19 +28,19 @@ const writeData = async () => {
 const account = accounts[0];
      console.log(" Address :" + account);
 
-    const writen = await contractWriting.setValue(100);
+    const writen = await contractWrite.setValue(100);
     console.log("Written"+writen.hash);
-    const c = await contractObjP.getvalue();
+    const c = await contractRead.getvalue();
     console.log("The New Value:" + c);
 }
 
 const sendEtherToContract = async () => {
-    const reply = await contractWriting.sendEthContract({ value: ethers.utils.parseEther("0.001") });
+    const reply = await contractWrite.sendEthContract({ value: ethers.utils.parseEther("0.001") });
     console.log("Reply =" + reply.hash);
 }
 
 const sendEtherToAContract = async () => {
-    const status = await contractWriting.sendEthUser("0x6f144c0628D2039f27F13604c583fAb72BEF197e", { value: ethers.utils.parseEther("0.001") });
+    const status = await contractWrite.sendEthUser("0x6f144c0628D2039f27F13604c583fAb72BEF197e", { value: ethers.utils.parseEther("0.001") });
         console.log("Hash :"+status);
 }
 
