@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import { Writecontract } from './wallet';
+import UploadFile from './components/UploadFile';
 import { ethers } from 'ethers';
 import { useEffect } from 'react';
 function App() {
@@ -15,8 +15,9 @@ function App() {
       
       <h1>Ethers BoilerPlate code</h1>
       <h3>When you wanna use a new chain then use JsonRpcProvider with the chains explorer url.</h3>
-      <h3>All the best,You got this</h3>
-<Writecontract></Writecontract>
+      <h3>All the best ;) ,You got this</h3>
+      <Writecontract></Writecontract>
+      <UploadFile/>
       </div>
       
   );
